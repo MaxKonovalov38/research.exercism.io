@@ -1,6 +1,5 @@
-"""
-Conversion functions for the NATO Phonetic Alphabet.
-"""
+#!/usr/bin/python3
+# Conversion functions for the NATO Phonetic Alphabet.
 
 # To save a lot of typing the code words are presented here
 # as a dict, but feel free to change this if you'd like.
@@ -59,7 +58,19 @@ def receive(transmission: str) -> str:
     """
     Convert a NATO code word transmission to a message.
     """
-    pass  # <- implement your function
+    list_string = transmission.split(' ')
+    array_alph = convert_dict_in_list()
+    n = len(array_alph)
+
+    for i in list_string:
+        while True:
+            n -= 1
+            if i == array_alph[n][1]:
+                print(array_alph[n][0], end='')
+                break
+            else:
+                continue
+
 
 
 def redacting_str(row_line: str) -> str:
@@ -68,13 +79,23 @@ def redacting_str(row_line: str) -> str:
     убрав из неё знаки препинания и пробелы.
     :param row_line - необработанная строка
     '''
-    values_punctuation = [' ', ',', '.', '_', '!']
+    values_punctuation = [' ', ',', '.', '-', '!']
     key = ''
 
     for i in values_punctuation:
         row_line = row_line.replace(i, key)
 
     return row_line
+
+
+def convert_dict_in_list() -> str:
+    '''
+    Функция convert_dict_in_list() конвектирует
+    словарь в строку
+    '''
+    list_alp = list(ALPHANUM_TO_NATO.items())
+
+    return list_alp
 
 
 def main():
@@ -91,6 +112,7 @@ def main():
         print() # Добавляет \n
     elif crypt_mode == 'D':
         receive(start_message)
+        print() # Добавляет \n
     else:
         print("Error: parametr is not found!!!")
         raise SystemExit
