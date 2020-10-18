@@ -62,7 +62,13 @@ def redacting_str(row_line:str) -> str:
     Функция redacting_str() редактирует строку,
     убрав из неё знаки препинания и пробелы.
     '''
-    pass
+    values_punctuation = [' ', ',', '.', '_', '!']
+    key = ''
+
+    for i in values_punctuation:
+        row_line = row_line.replace(i, key)
+
+    return row_line
 
 
 def main():
