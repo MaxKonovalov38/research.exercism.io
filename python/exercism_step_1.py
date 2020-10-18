@@ -73,12 +73,11 @@ def main():
     start_message = input("Write the message: ").upper()
     crypt_mode = input("[E]ncrypt|[Decrypt]: ").upper()
 
-    row_message = redacting_str(start_message)
-
     if crypt_mode == 'E':
+        row_message = redacting_str(start_message)
         transmit(row_message)
     elif crypt_mode == 'D':
-        receive(row_message)
+        receive(start_message)
     else:
         print("Error: parametr is not found!!!")
         raise SystemExit
