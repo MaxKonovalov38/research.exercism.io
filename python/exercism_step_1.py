@@ -47,7 +47,12 @@ def transmit(message: str) -> str:
     """
     Convert a message to a NATO code word transmission.
     """
-    pass  # <- implement your function
+    list_word = list(message)
+
+    for i in list_word:
+        for k in ALPHANUM_TO_NATO.keys():
+            if i == k:
+                print(ALPHANUM_TO_NATO[k], end=' ')
 
 
 def receive(transmission: str) -> str:
@@ -78,11 +83,12 @@ def main():
     также режим кодировать/раскодировать (E/D).
     '''
     start_message = input("Write the message: ").upper()
-    crypt_mode = input("[E]ncrypt|[Decrypt]: ").upper()
+    crypt_mode = input("[E]ncrypt|[D]ecrypt: ").upper()
 
     if crypt_mode == 'E':
         row_message = redacting_str(start_message)
         transmit(row_message)
+        print() # Добавляет \n
     elif crypt_mode == 'D':
         receive(start_message)
     else:
