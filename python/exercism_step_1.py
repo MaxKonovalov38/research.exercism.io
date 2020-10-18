@@ -74,7 +74,7 @@ def main():
     crypt_mode = input("[E]ncrypt|[Decrypt]: ").upper()
 
     if crypt_mode == 'E':
-        row_message = redacting_str(start_message)
+        row_message = redacting_str(start_message)  # Сообщение содержит знаки пунктуации и пробелы
         transmit(row_message)
     elif crypt_mode == 'D':
         receive(start_message)
