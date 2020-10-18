@@ -57,10 +57,11 @@ def receive(transmission: str) -> str:
     pass  # <- implement your function
 
 
-def redacting_str(row_line:str) -> str:
+def redacting_str(row_line: str) -> str:
     '''
     Функция redacting_str() редактирует строку,
     убрав из неё знаки препинания и пробелы.
+    :param row_line - необработанная строка
     '''
     values_punctuation = [' ', ',', '.', '_', '!']
     key = ''
@@ -80,7 +81,7 @@ def main():
     crypt_mode = input("[E]ncrypt|[Decrypt]: ").upper()
 
     if crypt_mode == 'E':
-        row_message = redacting_str(start_message)  # Сообщение содержит знаки пунктуации и пробелы
+        row_message = redacting_str(start_message)
         transmit(row_message)
     elif crypt_mode == 'D':
         receive(start_message)
