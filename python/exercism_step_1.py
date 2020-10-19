@@ -59,18 +59,11 @@ def receive(transmission: str) -> str:
     Convert a NATO code word transmission to a message.
     """
     list_string = transmission.split(' ')
-    array_alph = convert_dict_in_list()
-    n = len(array_alph)
-
+    
     for i in list_string:
-        while True:
-            n -= 1
-            if i == array_alph[n][1]:
-                print(array_alph[n][0], end='')
-                break
-            else:
-                continue
-
+        for key, value in ALPHANUM_TO_NATO.items():
+            if i == value:
+                print(key, end='')
 
 
 def redacting_str(row_line: str) -> str:
@@ -86,16 +79,6 @@ def redacting_str(row_line: str) -> str:
         row_line = row_line.replace(i, key)
 
     return row_line
-
-
-def convert_dict_in_list() -> str:
-    '''
-    Функция convert_dict_in_list() конвектирует
-    словарь в строку
-    '''
-    list_alp = list(ALPHANUM_TO_NATO.items())
-
-    return list_alp
 
 
 def main():
