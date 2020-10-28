@@ -1,4 +1,12 @@
 # User file
-python/exercism_step_1.txt
-python/example.py
+# Python
+python/ex_01.py
+python/ex_02.py
 python/__pycache__/
+python/test_conversion.py
+# Perl
+perl/
+# Rust
+rust/
+# Git
+.gitignore
