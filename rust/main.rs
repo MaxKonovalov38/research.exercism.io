@@ -5,8 +5,8 @@ fn disemowel(s: &str) -> String {
 
 	for word in s.chars() {
 		match word {
-			'a'|'e'|'o'|'y'|'i' => continue,
-			'A'|'E'|'I'|'O'|'U'|'Y' => continue,
+			'a'|'e'|'o'|'y'|'i'|'u' => continue,
+			'A'|'E'|'O'|'Y'|'I'|'U' => continue,
 			_ => line.push(word),
 		}
 	}
@@ -19,4 +19,5 @@ fn main() {
 	println!("{}", disemowel(text));
 	assert_eq!(disemowel("hello"), "hll");
 	assert_eq!(disemowel("Max KonoVAlov"), "Mx KnVlv");
+	assert_eq!(disemowel("abcdefghijklmnopqrstuvwxyz"), "bcdfghjklmnpqrstvwxz");
 }
